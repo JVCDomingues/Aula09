@@ -14,9 +14,6 @@ public class VisualizarPais implements Command {
 	public void execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String pId = request.getParameter("id");
-		String pNome = request.getParameter("nome");
-		long pPopulacao = Long.parseLong(request.getParameter("populacao"));
-		double pArea = Double.parseDouble(request.getParameter("area"));
 		int id = -1;
 		try {
 			id = Integer.parseInt(pId);
@@ -26,9 +23,6 @@ public class VisualizarPais implements Command {
 		
 		Pais pais = new Pais();
 		pais.setId(id);
-		pais.setNome(pNome);
-		pais.setPopulacao(pPopulacao);
-		pais.setArea(pArea);
 		
 		PaisService ps = new PaisService();
 		pais = ps.carregar(pais.getId());
